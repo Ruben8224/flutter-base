@@ -24,7 +24,7 @@ class _AdminPageState extends State<AdminPage> {
           children: [
             const Icon(
               Icons.abc,
-              color: Colors.transparent,
+              color: Color.fromARGB(0, 242, 240, 240),
             ),
             const Text("Admin Panel"),
             TextButton(

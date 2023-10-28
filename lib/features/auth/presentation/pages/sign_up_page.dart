@@ -24,7 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 74, 121, 152), // Cambia el color de fondo aquí
+      backgroundColor: Color.fromARGB(255, 28, 9, 44), // Cambia el color de fondo aquí
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
@@ -161,7 +161,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       style: TextStyle(color: Colors.white), // Color del texto del campo
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 30),
                     MyButtonTwo(
                       text: "Crear",
                       onPressed: signUpButton,

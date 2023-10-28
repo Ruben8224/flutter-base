@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ui_one/features/auth/presentation/pages/admin_page.dart';
 import 'package:ui_one/features/auth/presentation/pages/main_home.dart';
 import 'package:ui_one/features/auth/presentation/pages/sign_up_page.dart';
+import 'package:ui_one/features/auth/presentation/pages/home.dart';
 import 'package:ui_one/features/auth/presentation/validator/auth_validator.dart';
-
 import '../../../../service/auth_service.dart';
 
 class SignInPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 64, 93, 113), // Cambia el color de fondo aquí
+      backgroundColor: Color.fromARGB(255, 20, 8, 39), // Cambia el color de fondo aquí
       resizeToAvoidBottomInset: false,
       body: Center(
         child: Padding(
@@ -45,7 +46,7 @@ class _SignInPageState extends State<SignInPage> {
                   "Iniciar sesión",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 45,
+                    fontSize: 36,
                     fontWeight: FontWeight.bold,
                     color: Colors.white, // Color del texto
                   ),
@@ -67,7 +68,7 @@ class _SignInPageState extends State<SignInPage> {
                   "¡Bienvenido de nuevo! ¿Qué te trae por aquí?",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 14,
                     color: Colors.grey, // Color del texto
                   ),
                 ),
@@ -158,12 +159,12 @@ class _SignInPageState extends State<SignInPage> {
                 child: Text(
                   "Siguiente",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.orange, // Cambia el color del botón
-                  padding: EdgeInsets.symmetric(horizontal: 125, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(0),
                   ),
@@ -210,7 +211,7 @@ class _SignInPageState extends State<SignInPage> {
 
       if (token != null) {
         // La autenticación fue exitosa, aquí puedes navegar a la página principal
-        Navigator.pushNamed(context, MyApp.id);
+        Navigator.pushNamed(context, HomeScreen.id);
       } else {
         // La autenticación falló, muestra un mensaje de error
         ScaffoldMessenger.of(context).showSnackBar(
