@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor: Color.fromARGB(234, 5, 50, 59), // Cambia el color de fondo aquí
+            backgroundColor: Color.fromARGB(220, 5, 50, 59), // Cambia el color de fondo aquí
 
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 58, 29, 108),

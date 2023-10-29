@@ -51,17 +51,17 @@ class _ModelPageState extends State<ModelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Cambia el color de fondo aquí
+      backgroundColor: Color.fromARGB(232, 12, 24, 56), // Cambia el color de fondo aquí
 
       appBar: AppBar(
         title: Text(
-          "IA Machine Learning",
+          "Taxi trip fare prediction",
           style: TextStyle(
             color: Colors.white, // Texto del título en blanco
             // Aquí puedes ajustar otros estilos de texto, como tamaño de fuente, etc.
           ),
         ),
-        backgroundColor: Colors.orange,
+        backgroundColor: Color.fromARGB(255, 58, 29, 108),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -83,7 +83,7 @@ class _ModelPageState extends State<ModelPage> {
                         borderSide: BorderSide(color: Colors.white), // Color del borde cuando no está enfocado
                       ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue), // Color del borde cuando está enfocado
+                        borderSide: BorderSide(color: const Color.fromARGB(255, 255, 255, 255)), // Color del borde cuando está enfocado
                       ),
                       hintStyle: TextStyle(color: Colors.grey), // Color del texto de sugerencia (gris)
                     ),
@@ -107,7 +107,7 @@ class _ModelPageState extends State<ModelPage> {
                         borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue),
+                        borderSide: BorderSide(color: const Color.fromARGB(255, 255, 255, 255)),
                       ),
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
@@ -130,7 +130,7 @@ class _ModelPageState extends State<ModelPage> {
                         borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue),
+                        borderSide: BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
                       ),
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
@@ -153,7 +153,7 @@ class _ModelPageState extends State<ModelPage> {
                         borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue),
+                        borderSide: BorderSide(color: const Color.fromARGB(255, 255, 255, 255)),
                       ),
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
@@ -174,7 +174,7 @@ class _ModelPageState extends State<ModelPage> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary:  Colors.orange,
+                    primary:  Color.fromARGB(255, 16, 69, 68),
                     padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
@@ -186,7 +186,7 @@ class _ModelPageState extends State<ModelPage> {
                     vertical: 16.0, horizontal: 16.0),
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: Color.fromARGB(255, 3, 105, 44),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Text(

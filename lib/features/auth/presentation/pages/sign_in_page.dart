@@ -189,7 +189,7 @@ class _SignInPageState extends State<SignInPage> {
                   "Registrarse",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.orange, // Cambia el color del texto
+                    color: Color.fromARGB(255, 17, 54, 112), // Cambia el color del texto
                   ),
                 ),
               ),
