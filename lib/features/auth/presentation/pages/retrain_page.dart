@@ -25,7 +25,7 @@ class _RetrainPageState extends State<RetrainPage> {
       }
     };
 
-    final String githubToken = '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'; // Reemplaza con tu token de GitHub
+    final String githubToken = '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'; // Reemplaza con tu token de GitHub
     final String url = 'https://api.github.com/repos/Ruben8224/Taxi-trip--fare-prediction/dispatches';
 
     final response = await http.post(
@@ -80,8 +80,7 @@ class _RetrainPageState extends State<RetrainPage> {
                 ElevatedButton(
                   onPressed: () {
                     _retrainModel();
-                    final snackBar = SnackBar(content: Text(message));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    
                   },
                   child: Text(
                     'Reentrenar modelo',
@@ -96,6 +95,15 @@ class _RetrainPageState extends State<RetrainPage> {
                       borderRadius: BorderRadius.circular(0),
                     ),
                   ),
+                ),
+                SizedBox(height: 20), // Espacio entre el botón y el mensaje
+                Text(
+                  message, // Mensaje debajo del botón
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center, // Alinea el texto al centro
                 ),
               ],
             ),
