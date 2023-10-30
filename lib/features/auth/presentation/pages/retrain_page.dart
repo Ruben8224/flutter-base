@@ -24,7 +24,7 @@ class _RetrainPageState extends State<RetrainPage> {
     };
 
     final String githubToken = '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'; // Reemplaza con tu token de GitHub
-    final String url = 'https://api.github.com/repos/OWNER/REPO/dispatches'; // Reemplaza OWNER y REPO
+    final String url = 'https://api.github.com/repos/Ruben8224/Taxi-trip--fare-prediction/dispatches';
 
     final response = await http.post(
       Uri.parse(url),
@@ -45,52 +45,54 @@ class _RetrainPageState extends State<RetrainPage> {
   }
 
 @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(232, 12, 24, 56), // Cambia el color de fondo aquí
-      appBar: AppBar(
-        title: Text(
-          "Taxi trip fare prediction",
-          style: TextStyle(
-            color: Colors.white, // Texto del título en blanco
-            // Aquí puedes ajustar otros estilos de texto, como tamaño de fuente, etc.
-          ),
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: Color.fromARGB(232, 12, 24, 56),
+    appBar: AppBar(
+      title: Text(
+        "Taxi trip fare prediction",
+        style: TextStyle(
+          color: Colors.white,
         ),
-        backgroundColor: Color.fromARGB(255, 58, 29, 108),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Centra los elementos verticalmente
-              children: <Widget>[
-                // Texto y botón para reentrenar el modelo
-                Text(
-                  "Esta es la pantalla de reentrenamiento del modelo.",
+      backgroundColor: Color.fromARGB(255, 58, 29, 108),
+    ),
+    body: Center(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              
+              Text(
+                "Esta es la pantalla de reentrenamiento del modelo.",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: _retrainModel,
+                child: Text(
+                  'Reentrenar modelo',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    _retrainModel();
-                  },
-                  child: Text('Reentrenar Modelo'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 16, 69, 68),
-                    padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 58, 29, 108),
+                  padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
                   ),
                 ),
-              ],
-            ),
+              ), // Cierra el ElevatedButton aquí
+            ],
           ),
         ),
       ),
-    );
-  }
-  }
+    ),
+  );
+}
+}
