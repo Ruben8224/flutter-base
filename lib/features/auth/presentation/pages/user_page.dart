@@ -21,7 +21,7 @@ class _UserPageState extends State<UserPage> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
-      final url = Uri.parse('https://centenitoo-irvingcm123.cloud.okteto.net/graphql/'); // Reemplaza con la URL de tu API
+      final url = Uri.parse('https://rubencastillo1234-ruben8224.cloud.okteto.net/graphql/'); // Reemplaza con la URL de tu API
       final response = await http.get(url);
 
       if (response.statusCode == 200) {

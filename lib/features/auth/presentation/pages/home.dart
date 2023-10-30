@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_one/features/auth/presentation/pages/model_page.dart';
+import 'package:ui_one/features/auth/presentation/pages/retrain_page.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "home";
@@ -112,8 +113,8 @@ class GridViewButtons extends StatelessWidget {
         ),
         CustomButton(
           icon: Icons.emoji_emotions,
-          label: 'Deep Learning',
-          data: ModelPage.id,
+          label: 'Re entrenar modelo',
+          data: RetrainPage.id,
         ),
         CustomButton(
           icon: Icons.history,
