@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:ui_one/features/auth/presentation/pages/app_widget.dart';
 import 'package:ui_one/service._locator.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env"); // Cargar las variables de entorno desde el archivo .env
+  await dotenv.load(fileName: "/.env"); // Cargar las variables de entorno desde el archivo .env
   setupLocator();
   runApp(const AppWidget());
 }
