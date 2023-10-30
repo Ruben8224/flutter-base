@@ -13,6 +13,8 @@ class RetrainPage extends StatefulWidget {
 }
 
 class _RetrainPageState extends State<RetrainPage> {
+  String message = ""; // Variable para almacenar el mensaje
+
   Future<void> _retrainModel() async {
     final Map<String, dynamic> requestData = {
       "event_type": "ml_ci_cd",
@@ -23,7 +25,7 @@ class _RetrainPageState extends State<RetrainPage> {
       }
     };
 
-    final String githubToken = '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'; // Reemplaza con tu token de GitHub
+    final String githubToken = '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'; // Reemplaza con tu token de GitHub
     final String url = 'https://api.github.com/repos/Ruben8224/Taxi-trip--fare-prediction/dispatches';
 
     final response = await http.post(
@@ -37,62 +39,69 @@ class _RetrainPageState extends State<RetrainPage> {
 
     if (response.statusCode == 204) {
       // Maneja la respuesta exitosa aquí
-      print('Solicitud de reentrenamiento enviada con éxito.');
+      setState(() {
+        message = 'Modelo entrenado';
+      });
     } else {
       // Maneja errores o respuestas no exitosas aquí
-      print('Error al enviar la solicitud de reentrenamiento: ${response.reasonPhrase}');
+      setState(() {
+        message = 'Error de petición: ${response.reasonPhrase}';
+      });
     }
   }
 
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    backgroundColor: Color.fromARGB(232, 12, 24, 56),
-    appBar: AppBar(
-      title: Text(
-        "Taxi trip fare prediction",
-        style: TextStyle(
-          color: Colors.white,
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromARGB(232, 12, 24, 56),
+      appBar: AppBar(
+        title: Text(
+          "Taxi trip fare prediction",
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
+        backgroundColor: Color.fromARGB(255, 58, 29, 108),
       ),
-      backgroundColor: Color.fromARGB(255, 58, 29, 108),
-    ),
-    body: Center(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              
-              Text(
-                "Esta es la pantalla de reentrenamiento del modelo.",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
-              ElevatedButton(
-                onPressed: _retrainModel,
-                child: Text(
-                  'Reentrenar modelo',
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Esta es la pantalla de reentrenamiento del modelo.",
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 20,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 58, 29, 108),
-                  padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
+                ElevatedButton(
+                  onPressed: () {
+                    _retrainModel();
+                    final snackBar = SnackBar(content: Text(message));
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  },
+                  child: Text(
+                    'Reentrenar modelo',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 58, 29, 108),
+                    padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
                   ),
                 ),
-              ), // Cierra el ElevatedButton aquí
-            ],
+              ],
+            ),
           ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 }
