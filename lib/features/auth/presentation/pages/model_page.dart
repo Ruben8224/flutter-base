@@ -14,8 +14,7 @@ class ModelPage extends StatefulWidget {
 class _ModelPageState extends State<ModelPage> {
   final _formKey = GlobalKey<FormState>();
   String _respuesta = '';
-  int? age, drivingLicense, regionCode, previouslyInsured;
-  double? policySalesChannel, vintage;
+  double? distanceTraveled, numPassengers, miscellaneousFees, tripDuration;
 
   Future<void> _consultarModelo() async {
     if (_formKey.currentState!.validate()) {
@@ -25,11 +24,11 @@ class _ModelPageState extends State<ModelPage> {
           'https://predict-taxi-centenito-service-ruben8224.cloud.okteto.net/predict');
       final response = await http.post(url,
           body: json.encode({
-    "distance_traveled": 3.43,
-    "num_of_passengers":  1.0,
-    "miscellaneous_fees":  13.200000000000017,
-    "trip_duration": 1187
-}),
+            "distance_traveled": distanceTraveled,
+            "num_of_passengers": numPassengers,
+            "miscellaneous_fees": miscellaneousFees,
+            "trip_duration": tripDuration,
+          }),
           headers: {"Content-Type": "application/json"});
 
       if (response.statusCode == 200) {
@@ -51,14 +50,13 @@ class _ModelPageState extends State<ModelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(232, 12, 24, 56), // Cambia el color de fondo aquí
+      backgroundColor: Color.fromARGB(232, 12, 24, 56),
 
       appBar: AppBar(
         title: Text(
           "Taxi trip fare prediction",
           style: TextStyle(
-            color: Colors.white, // Texto del título en blanco
-            // Aquí puedes ajustar otros estilos de texto, como tamaño de fuente, etc.
+            color: Colors.white,
           ),
         ),
         backgroundColor: Color.fromARGB(255, 58, 29, 108),
@@ -70,29 +68,28 @@ class _ModelPageState extends State<ModelPage> {
             key: _formKey,
             child: Column(
               children: <Widget>[
-                // TextFormFields y DropdownButtonFormField para los nuevos campos
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'distancia viajada',
+                      labelText: 'Distancia Viajada',
                       labelStyle: TextStyle(
-                        color: Colors.grey, // Color del texto del label (gris)
+                        color: Colors.grey,
                       ),
                       enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white), // Color del borde cuando no está enfocado
+                        borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: const Color.fromARGB(255, 255, 255, 255)), // Color del borde cuando está enfocado
+                        borderSide: BorderSide(color: const Color.fromARGB(255, 255, 255, 255)),
                       ),
-                      hintStyle: TextStyle(color: Colors.grey), // Color del texto de sugerencia (gris)
+                      hintStyle: TextStyle(color: Colors.grey),
                     ),
                     style: TextStyle(
-                      color: Colors.white, // Color del texto de entrada (blanco)
-                      // Aquí puedes ajustar otros estilos de texto, como tamaño de fuente, etc.
+                      color: Colors.white,
                     ),
                     keyboardType: TextInputType.number,
-                    onSaved: (value) => age = int.tryParse(value ?? ''),
+                    onSaved: (value) => distanceTraveled = double.tryParse(value ?? ''),
                   ),
                 ),
                 Padding(
@@ -115,7 +112,7 @@ class _ModelPageState extends State<ModelPage> {
                       color: Colors.white,
                     ),
                     keyboardType: TextInputType.number,
-                    onSaved: (value) => drivingLicense = int.tryParse(value ?? ''),
+                    onSaved: (value) => numPassengers = double.tryParse(value ?? ''),
                   ),
                 ),
                 Padding(
@@ -138,7 +135,7 @@ class _ModelPageState extends State<ModelPage> {
                       color: Colors.white,
                     ),
                     keyboardType: TextInputType.number,
-                    onSaved: (value) => regionCode = int.tryParse(value ?? ''),
+                    onSaved: (value) => miscellaneousFees = double.tryParse(value ?? ''),
                   ),
                 ),
                 Padding(
@@ -161,7 +158,7 @@ class _ModelPageState extends State<ModelPage> {
                       color: Colors.white,
                     ),
                     keyboardType: TextInputType.number,
-                    onSaved: (value) => previouslyInsured = int.tryParse(value ?? ''),
+                    onSaved: (value) => tripDuration = double.tryParse(value ?? ''),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -170,11 +167,11 @@ class _ModelPageState extends State<ModelPage> {
                   child: Text(
                     'Consultar Modelo',
                     style: TextStyle(
-                      color: Colors.white, // Texto del botón en blanco
+                      color: Colors.white,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary:  Color.fromARGB(255, 16, 69, 68),
+                    primary: Color.fromARGB(255, 16, 69, 68),
                     padding: EdgeInsets.symmetric(horizontal: 125, vertical: 22),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
@@ -192,7 +189,7 @@ class _ModelPageState extends State<ModelPage> {
                   child: Text(
                     'Predicción: \$$_respuesta',
                     style: TextStyle(
-                      color: Colors.white, // Texto en blanco para mejor contraste
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

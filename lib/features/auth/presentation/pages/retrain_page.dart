@@ -25,7 +25,7 @@ class _RetrainPageState extends State<RetrainPage> {
       }
     };
 
-    final String githubToken = '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';
+    final githubToken = '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';
     final String url = 'https://api.github.com/repos/Ruben8224/Taxi-trip--fare-prediction/dispatches';
 
     final response = await http.post(
